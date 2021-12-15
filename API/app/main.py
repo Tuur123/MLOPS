@@ -13,13 +13,10 @@ modelEndpoint = 'https://www.w3schools.com/python/demopage.php'
 def read_root():
     return {"Hello": "World"}
 
-
 @app.post("/movies/")
 async def create_movieList(movielist: MovieList):
 
     # stuur request naar azure model endpoint
     response = requests.post(url, data = movielist)
-
-    # ontvang movies om aan te bevelen
 
     return response.text
