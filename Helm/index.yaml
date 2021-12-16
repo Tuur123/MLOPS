@@ -1,0 +1,19 @@
+apiVersion: v1
+entries:
+  Api:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2021-12-16T20:31:46.436823733+01:00"
+    description: Chart for the Api
+    digest: e3ce9bf80e3c81c67d484c07bf67d863cb7d831a9a5639a75a65d9099831c7ef
+    home: https://helm.sh/helm
+    maintainers:
+    - email: van.loock.lennert@student.howest.be
+      name: Lennert van loock
+    name: Api
+    sources:
+    - https://github.com/helm/helm
+    urls:
+    - Api-1.0.0.tgz
+    version: 1.0.0
+generated: "2021-12-16T20:31:46.434699874+01:00"
