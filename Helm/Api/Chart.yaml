@@ -1,0 +1,11 @@
+apiVersion: v2
+appVersion: "1.0"
+description: Chart for the Api
+home: https://helm.sh/helm
+maintainers:
+  - email: van.loock.lennert@student.howest.be
+    name: Lennert van loock
+name: Api
+sources:
+  - https://github.com/helm/helm
+version: 1.0.0
