@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix, accuracy_score, classification_report
 from sklearn.preprocessing import OneHotEncoder
 
-from tensorflow import keras
+import keras
 
 from keras import backend as K
 from keras import regularizers
