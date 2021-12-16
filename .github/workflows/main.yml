@@ -34,8 +34,9 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
       - name: build and run docker file
-        run:
+        run: |
           docker build -t ghcr.io/vanloocklennert/imdb-api:latest /API
           docker run -d -p 5000:80 ghcr.io/vanloocklennert/imdb-api:latest
       
