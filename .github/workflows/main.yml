@@ -67,3 +67,8 @@ jobs:
         working-directory: model/scripts
         run: |
           python preprocessing.py
+
+      - name: Run training script
+        working-directory: model/scripts
+        run: |
+          python training.py
