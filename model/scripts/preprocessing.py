@@ -2,14 +2,13 @@
 import pandas as pd
 import numpy as np
 
-def read_data(path):
-    dataset = pd.read_csv(path ,sep=',',header=None, engine='python',
+def read_data():
+    dataset = pd.read_csv('../data/MovieLens/ratings.csv',sep=',',header=None, engine='python', skiprows=1,
                      names=["User", "Movie", "Rating", "Timestamp"])
 
     dataset['Rating'] = dataset['Rating'] / 5.0
     movieratings_dataframe = dataset.pivot(index='User',columns='Movie',values='Rating').fillna(0)
     movieratings_dataframe = movieratings_dataframe.reindex(movieratings_dataframe.columns.union(np.arange(1, max(dataset['Movie']))), axis=1, fill_value=0.0)
-
     return movieratings_dataframe
 
 
@@ -36,9 +35,16 @@ def split_data(data):
 
 
 def save_data(X_train, X_test, y_train, y_test, ratedlist, path):
-    np.save(path + "/X_train.npy", X_train)
-    np.save(path + "/y_train.npy", y_train)
+    np.save(path + "X_train.npy", X_train)
+    np.save(path + "y_train.npy", y_train)
     np.save(path + "X_test.npy", X_test)
     np.save(path + "y_test.npy", y_test)
     np.save(path + "ratedlist.npy", np.asarray(ratedlist))
+
+
+data = read_data()
+
+X_train, X_test, y_train, y_test, ratedlist = split_data(data)
+
+save_data(X_train, X_test, y_train, y_test, ratedlist, "../data/preprocessed_data/")
 
