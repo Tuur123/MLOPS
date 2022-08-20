@@ -30,4 +30,4 @@ resources: {}
   #   memory: 128Mi
 
 nodeSelector:
-  kubernetes.io/hostname: van-loock-lennert
+  kubernetes.io/hostname: github-actions-test
