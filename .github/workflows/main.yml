@@ -49,13 +49,14 @@ jobs:
       #    curl localhost:5000
       
       - name: 'Set up python'
-        run: |
-          sudo apt install python3
-      
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' 
+            
       - name: "install requirements"
         run: |
-          python3 -m pip install --upgrade pip
-          python3 -m pip install -r requirements.txt
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
 
       - name: "Azure login"  
         uses: azure/login@v1
@@ -65,9 +66,9 @@ jobs:
       - name: Run data prep script
         working-directory: model/scripts
         run: |
-          python3 preprocessing.py
+          python preprocessing.py
 
       - name: Run training script
         working-directory: model/scripts
         run: |
-          python3 training.py
+          python training.py
