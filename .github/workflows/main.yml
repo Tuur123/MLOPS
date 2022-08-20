@@ -49,9 +49,8 @@ jobs:
       #    curl localhost:5000
       
       - name: 'Set up python'
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.6
+        run: |
+          sudo apt install python3
       
       - name: "install requirements"
         run: |
