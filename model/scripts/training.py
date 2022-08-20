@@ -23,11 +23,11 @@ def custom_loss(y_true,y_pred):
 
 
 def load_data(path):
-    X_train = np.load(path + "/X_train.npy", allow_pickle=True)
-    y_train = np.load(path + "/y_train.npy", allow_pickle=True)
-    X_test = np.load(path + "/X_test.npy", allow_pickle=True)
-    y_test = np.load(path + "/y_test.npy", allow_pickle=True)
-    ratedlist = np.load(path + "/ratedlist.npy", allow_pickle=True)
+    X_train = np.load(path + "X_train.npy", allow_pickle=True)
+    y_train = np.load(path + "y_train.npy", allow_pickle=True)
+    X_test = np.load(path + "X_test.npy", allow_pickle=True)
+    y_test = np.load(path + "y_test.npy", allow_pickle=True)
+    ratedlist = np.load(path + "ratedlist.npy", allow_pickle=True)
     return X_train, y_train, X_test, y_test, ratedlist
 
 
@@ -55,4 +55,7 @@ def train_model(X_train, y_train, X_test, y_test, batchsize, epochs, optimizer):
     autoencoder.save("../snapshots/imdb-model.h5")
 
 
+X_train, y_train, X_test, y_test, ratedlist = load_data("../data/preprocessed_data/")
 
+
+train_model(X_train, y_train, X_test, y_test,  128, 15, "SGD")
